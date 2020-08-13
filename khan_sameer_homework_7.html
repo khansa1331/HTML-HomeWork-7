@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Length Converter</title>
+        </head>
+    <body>
+        <header>
+        <h1 style="color:#228B22">Length Converter</h1>
+        </header>
+        <main>
+            <form id="lenthConverter">
+            <p><label for="numEntry" style="color:#228B22">Enter an amount in feet: </label>
+                <input type="text" id="txtFeetEntry">
+                </p>
+                <p><label for="typeOfConversion" style="color:#228B22">Pick the length to convert to: </label>
+                    <select id="selLengthType">
+                    <option value="inches">Inches</option>
+                    <option value="meters">Meters</option>
+                    <option value="centimeters">Centimeters</option>
+                    </select>
+                </p>
+                <p><button type="button" onclick="convertLength()">Convert</button></p>
+            </form>
+            <span id="output" style="color:#228B22">
+            </span> <!-- End of output span tag -->
+            <script>
+                function convertLength() {
+                    var feet, inches, meters, centimeters, output;
+                    feet = document.getElementById("txtFeetEntry").value;
+                    feet = parseFloat(feet);
+                    var select = document.getElementById("selLengthType").value;
+                    if (select == "inches") {
+                        inches = parseFloat(12*feet);
+                        inches = inches.toFixed(1);
+                        output = "Conversion Amount: " + inches + " inches.";
+                    }
+                    else if(select == "meters") {
+                        meters = parseFloat (.305*feet);
+                        meters = meters.toFixed(1);
+                        output = "Conversion Amount: " + meters + " meters.";
+                    }
+                    else if(select == "centimeters") {
+                        centimeters = parseFloat(30.48*feet);
+                        centimeters = centimeters.toFixed(1);
+                        output = "Conversion Amount: " + centimeters + " centimeters.";
+                    }
+                    document.getElementById("output").innerHTML = output;
+                }
+            </script>
+        </main>
+    </body>
+</html>
